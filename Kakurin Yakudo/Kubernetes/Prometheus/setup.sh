@@ -16,7 +16,6 @@ volumeBindingMode: WaitForFirstConsumer
 EOF
 
 k create ns prometheus
-
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
 helm upgrade -i prometheus prometheus-community/prometheus \
@@ -31,9 +30,16 @@ kubectl wait --namespace prometheus \
 
 export POD_NAME=$(kubectl get pods --namespace prometheus -l "app.kubernetes.io/name=prometheus,app.kubernetes.io/instance=prometheus" -o jsonpath="{.items[0].metadata.name}")
 
+PRIVATE_IP=$(hostname -I | awk '{print $1}')
+PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
+
 echo "-------------------------------------------------------"
-echo "ヾ(≧▽≦*)o Port-Forwarding: http://localhost:59090"
-echo "Target Pod: $POD_NAME"
+echo "                       (～￣▽￣)～"
+echo "Prometheus Server is running!"
+echo "Local Access:      http://localhost:59090"
+echo "Private Network:   http://${PRIVATE_IP}:59090"
+echo "Public Access:     http://${PUBLIC_IP}:59090"
+echo "Target Pod:        $POD_NAME"
 echo "-------------------------------------------------------"
 
-kubectl --namespace prometheus port-forward $POD_NAME 59090:9090 --address 0.0.0.0 &
+kubectl --namespace prometheus port-forward $POD_NAME 59090:9090 --address 0.0.0.0 & > /dev/null 2>&1 &
