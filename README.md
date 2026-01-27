@@ -1,3 +1,3 @@
 # Sen-ketsu
 ## 赤血操術 **『 穿血 』**
-![Image](https://github.com/user-attachments/assets/dafd6686-db9b-4822-8c93-707c08f39117)
+<img width="610" height="452" alt="image" src="https://github.com/user-attachments/assets/89ea4a35-917a-4dca-8f8e-6f8350f4797d" />
