@@ -1,0 +1,1 @@
+curl -fsSL https://raw.githubusercontent.com/Churious/Script/refs/heads/main/k8s/eks-bastion-setup.sh | bash
