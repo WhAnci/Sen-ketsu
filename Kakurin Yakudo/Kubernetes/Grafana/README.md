@@ -24,3 +24,7 @@ kubectl get secret --namespace monitoring my-grafana -o jsonpath="{.data.admin-p
 export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=my-grafana" -o jsonpath="{.items[0].metadata.name}")
 kubectl --namespace monitoring port-forward $POD_NAME 23000:3000 & # 백그라운드로 실행
 ```
+## Use setup.sh
+```bash
+curl -fsSL https://raw.githubusercontent.com/WhAnci/Sen-ketsu/refs/heads/main/Kakurin%20Yakudo/Kubernetes/Grafana/setup.sh | bash
+```
