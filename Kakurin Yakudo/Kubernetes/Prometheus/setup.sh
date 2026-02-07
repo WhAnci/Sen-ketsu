@@ -22,7 +22,7 @@ helm repo update
 helm upgrade -i prometheus prometheus-community/prometheus \
     --namespace prometheus
 
-DEFAULT_PORT="59090"
+DEFAULT_PORT="190190"
 echo ""
 while true; do
     read -p "▶ Enter Port Number for Port-Forwarding [$DEFAULT_PORT]: " CUSTOM_PORT
