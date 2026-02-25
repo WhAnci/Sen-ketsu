@@ -13,12 +13,12 @@ PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
 echo "-------------------------------------------------------"
 echo "                       (～￣▽￣)～"
 echo "Grafanna Dashboard is running!"
-echo "Local Access:      http://localhost:53000"
-echo "Private Network:   http://${PRIVATE_IP}:53000"
-echo "Public Access:     http://${PUBLIC_IP}:53000"
+echo "Local Access:      http://localhost:13000"
+echo "Private Network:   http://${PRIVATE_IP}:13000"
+echo "Public Access:     http://${PUBLIC_IP}:13000"
 echo "Target Pod:        $POD_NAME"
 echo "-------------------------------------------------------"
 
-kubectl --namespace grafana port-forward $POD_NAME 53000:3000 --address 0.0.0.0 > /dev/null 2>&1 &
+kubectl --namespace grafana port-forward $POD_NAME 13000:3000 --address 0.0.0.0 > /dev/null 2>&1 &
 
 echo "  ✅ Port-forwarding is running in the background."
