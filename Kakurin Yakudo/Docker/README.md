@@ -7,8 +7,8 @@
   FROM golang:alpine
   RUN apk add --no-cache curl libc6-compat
   WORKDIR /app
-  COPY customer .
-  RUN chmod +x customer
-  CMD ["./customer"]
+  COPY app .
+  RUN chmod +x app
+  CMD ["./app"]
   ```
 </details>
